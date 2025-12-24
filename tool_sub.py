@@ -5,8 +5,8 @@ datawarehouse = Path(r"C:\Users\eieib\OneDrive\From_BrotherDevice")
 current = Path(__file__).parent
 
 """基本"""
-filename = "x"
-p = Path(datawarehouse)
+# filename = "x"
+# p = Path(datawarehouse)
 
 # doc = fitz.open(f)
 # print(len(doc))
@@ -17,17 +17,17 @@ p = Path(datawarehouse)
 # doc.close()
 
 """マージ"""
-pdf_paths = ["都市大学2024-1.pdf", "都市大学2024-2.pdf"]
+pdf_paths = ["帝京2023-1.pdf", "帝京2023-2.pdf"]
 
 # 新しいPDFを作成
 merged_pdf = fitz.open()
 
 # 各ファイルを読み込んでページを追加
 for path in pdf_paths:
-    pdf = fitz.open(path)
+    pdf = fitz.open(datawarehouse / path)
     merged_pdf.insert_pdf(pdf)
     pdf.close()
 
 # 保存
-merged_pdf.save("都市大学2024.pdf")
+merged_pdf.save("帝京2023.pdf")
 merged_pdf.close()
